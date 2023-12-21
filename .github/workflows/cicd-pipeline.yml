@@ -56,7 +56,7 @@ jobs:
           echo "slack-notify=${{ github.event.inputs.slack-notify || env.SLACK_NOTIFY }}" >> "${GITHUB_OUTPUT}"
 
   slack-workflow-status:
-    if: always() && ${{ github.actor != 'dependabot[bot]' }}
+    if: always() && github.actor != 'dependabot[bot]'
     name: Slack Post Workflow Notification
     needs:
       - bandit
